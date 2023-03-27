@@ -1,50 +1,46 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 
-export const Login = (props) => {
+export const Login = ({addInfo,clearLoginInfo}) => {
 
-    const [Initialtext, setInitialtext] = useState({ username: "", email: "", password: "" })
-    const [click, setclick] = useState(false)
-    // const [text2,setText2] = useState("");
-    // const [text3,setText3] = useState("");
+    const [text, settext] = useState({ username: "", email: "", password: "" });
 
-    const handlechange = (e) => {
+    const navigate = useNavigate();
+
+    const handleText = (e) => {
+        e.preventDefault();
+
         const value = e.target.value;
-        setInitialtext(
-            {
-                ...Initialtext,
-                [e.target.name]: value
-            }
-        )
-    }
 
+        settext({ ...text, [e.target.name]: value });
+    }
+    
+
+    const handleSubmit = ()=>{
+    addInfo(text);
+    navigate("/Homepage");
+
+    }
 
     const handleClear = () => {
-        setInitialtext({ username: "", email: "", password: "" })
+        clearLoginInfo();
     }
+
 
     return (
         <div>
             <div className='Login'>
                 <div className="LoginContainer">
                     <div className='LoginText'>
-                        <h1>{props.Title}</h1>
+                        <h1>Login</h1>
                         <h6>Name</h6>
-                        <input className='TextField' name="username" value={Initialtext.username} type="text" onChange={handlechange} />
+                        <input className='TextField' name='username' type="text" value={text.username} onChange={handleText} />
                         <h6>Email</h6>
-                        <input className='TextField' name="email" value={Initialtext.email} type="email" onChange={handlechange} />
+                        <input className='TextField' name='email' type="email" value={text.email} onChange={handleText} />
                         <h6>Password</h6>
-                        <input className='TextField' name="password" value={Initialtext.password} type="password" onChange={handlechange} />
-                        {/* <hr /> */}
-                        <button className='Button' onClick={() => setclick(true)}>Submit</button>
-                        {
-                            click && (
-                                <div>
-                                    <p>{Initialtext.username}</p>
-                                    <p>{Initialtext.email}</p>
-                                    <p>{Initialtext.password}</p>
-                                </div>
-                            )
-                        }
+                        <input className='TextField' name='password' type="password" value={text.password} onChange={handleText} />
+                        <br />
+                        <button className='Button' type='submit' onClick={handleSubmit}>Submit</button>
                         <button className='Button ClearButton' onClick={handleClear}>Clear</button>
                     </div>
                 </div>
