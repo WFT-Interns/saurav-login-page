@@ -1,6 +1,6 @@
 # **Login Page**
 
-This project is just a basic login page. The features of this login page is that when you submit the text you entered it submit it and will display on the same page. \ You can also use clear button to clear the text.
+This project is just a basic login page. The features of this login page is that when you submit the text you entered it submit it and will display on the same page. You can also use clear button to clear the text.
 
 ## **How to Run This Project**
 
