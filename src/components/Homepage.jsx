@@ -1,6 +1,16 @@
-import React from 'react'
+import React from 'react';
+import { useNavigate } from "react-router-dom";
 
 const Homepage = ({loginInfo}) => {
+  const navigate = useNavigate();
+
+  const showMovies = () =>{
+      navigate("/Movies");
+  }
+  const showWeather = () =>{
+      navigate("/Weather");
+  }
+
   return (
     <div>
         {
@@ -12,6 +22,8 @@ const Homepage = ({loginInfo}) => {
                 </div>
             ))
         }
+        <button onClick={showMovies} > Movies List </button>
+        <button onClick={showWeather} > Show Weather</button>
     </div>
   )
 }
