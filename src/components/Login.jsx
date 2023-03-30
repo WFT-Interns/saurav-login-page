@@ -1,7 +1,11 @@
 import React, { useState } from 'react'
+import { Box, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import { TextField } from '@mui/material';
+import '../App.css'
+import StyledButton from './StyledButtons';
 
-export const Login = ({addInfo,clearLoginInfo}) => {
+export const Login = ({ addInfo, clearLoginInfo }) => {
 
     const [text, settext] = useState({ username: "", email: "", password: "" });
 
@@ -14,11 +18,11 @@ export const Login = ({addInfo,clearLoginInfo}) => {
 
         settext({ ...text, [e.target.name]: value });
     }
-    
 
-    const handleSubmit = ()=>{
-    addInfo(text);
-    navigate("/Homepage");
+
+    const handleSubmit = () => {
+        addInfo(text);
+        navigate("/Homepage");
 
     }
 
@@ -27,25 +31,35 @@ export const Login = ({addInfo,clearLoginInfo}) => {
     }
 
 
+
     return (
-        <div>
-            <div className='Login'>
-                <div className="LoginContainer">
-                    <div className='LoginText'>
+        <Box>
+            <Box className='Login'>
+                <Box className="LoginContainer">
+                    <Box className='LoginText'>
                         <h1>Login</h1>
-                        <h6>Name</h6>
-                        <input className='TextField' name='username' type="text" value={text.username} onChange={handleText} />
-                        <h6>Email</h6>
-                        <input className='TextField' name='email' type="email" value={text.email} onChange={handleText} />
-                        <h6>Password</h6>
-                        <input className='TextField' name='password' type="password" value={text.password} onChange={handleText} />
+                        <Box className="textContainer">
+                            <Typography>Name</Typography>
+                            <TextField label="Name" variant="outlined" className='TextField' name='username' type="text" value={text.username} onChange={handleText} />
+                        </Box>
+                        <Box className="textContainer">
+                            <Typography>Email</Typography>
+                            <TextField label="Email" variant="outlined" className='TextField' name='email' type="email" value={text.email} onChange={handleText} />
+                        </Box>
+                        <Box className="textContainer">
+                            <Typography>Password</Typography>
+                            <TextField label="Password" variant="outlined" className='TextField' name='password' type="password" value={text.password} onChange={handleText} />
+                        </Box>
                         <br />
-                        <button className='Button' type='submit' onClick={handleSubmit}>Submit</button>
-                        <button className='Button ClearButton' onClick={handleClear}>Clear</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+                        <Box className="buttonContainer">
+                            <StyledButton onClick={handleSubmit} > Submit </StyledButton>
+                            <StyledButton onClick={handleSubmit} > Clear </StyledButton>
+                        
+                        </Box>
+                    </Box>
+                </Box>
+            </Box>
+        </Box>
     )
 }
 

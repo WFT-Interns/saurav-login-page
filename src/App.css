@@ -12,7 +12,11 @@
   padding-top: 100px;
   padding-bottom: 100px;
   /* width: 00px; */
-  /* border: 1px solid black; */
+  border: 1px solid black;
+}
+
+.textContainer{
+  margin-top: 50px;
 }
 
 
@@ -25,7 +29,8 @@
   border-radius: 10px;
   align-items: center;
   justify-content: center;
-  margin-right: 50px;
+  /* margin-right: 50px; */
+  padding: 100px;
   
 }
 .Button:hover{
@@ -36,4 +41,8 @@
   height: 30px;
   width: 250px;
   border-radius: 10px;
+}
+
+.buttonContainer{
+  margin-top: 20px;
 }

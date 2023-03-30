@@ -6,8 +6,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 
 import Homepage from './components/Homepage';
-import { useEffect, useState } from 'react';
-import axios from 'axios';
+import { useState } from 'react';
+import FootballScore from './components/FootballScore';
 
 function App() {
   const [loginInfo, setLoginInfo] = useState([]);
@@ -30,6 +30,8 @@ function App() {
           <Route path='/Homepage' element={<Homepage loginInfo={loginInfo} />} />
           <Route path='/Movies' element={< Movies />} />
           <Route path='/Weather' element={< Weather />} />
+          <Route path='/FootballScore' element={< FootballScore />} />
+
         </Routes>
       </Router>
     </div>
